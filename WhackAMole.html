@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Whack-A-Mole</title>
+</head>
+
+<body onload = "main()">
+
+<table>
+    <tr>
+        <td><img id="pic1" src ="noMole.jpg" onclick="hit(1)" /></td>
+        <td><img id="pic2" src ="noMole.jpg" onclick="hit(2)" /></td>
+        <td><img id="pic3" src ="noMole.jpg" onclick="hit(3)" /></td>
+    </tr>
+    <tr>
+        <td colspan="3"><p style="text-align: center; font-size: x-large; font-weight: 700;" id="bigCounter">0</p></td>
+    </tr>
+</table>
+
+<script>
+    
+        var activeMole = random123();  
+        var hitCount = 0;  
+ 
+        
+        function random123()
+        {
+            
+            return Math.floor(Math.random() * 3) + 1; 
+            
+        }
+    
+        
+    	function main() {
+            
+             document.getElementById("pic" + activeMole.toString()).src = 'mole.jpg'
+
+        }
+        
+          
+       function hit(boxNumber) {
+        
+        if(boxNumber == activeMole) {
+            hitCount++;
+            document.getElementById("bigCounter").innerHTML=hitCount.toString();
+            document.getElementById("pic" + activeMole.toString()).src = 'noMole.jpg';
+            
+            activeMole = random123();
+            document.getElementById("pic" + activeMole.toString()).src = 'mole.jpg';
+        }
+        
+    
+        }
+</script>
+
+</body>
+</html>
